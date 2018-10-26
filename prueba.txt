@@ -1,0 +1,1 @@
+Prueba: Conectar git con maquina virtual, crear un archivo y subirlo a git.
