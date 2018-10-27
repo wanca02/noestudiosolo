@@ -1,5 +1,6 @@
 var mongoose = require('mongoose');
  
+
 var Datos_cuentaSchema = mongoose.Schema({
     _id: mongoose.Schema.Types.ObjectId,
     usuario:{type: String,
@@ -25,7 +26,9 @@ var Datos_cuentaSchema = mongoose.Schema({
         default: Date.now
     }
 });
+
+
  
 var datos_cuenta = mongoose.model('Datos_cuenta', Datos_cuentaSchema);
- 
+
 module.exports = datos_cuenta;

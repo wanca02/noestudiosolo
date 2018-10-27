@@ -1,6 +1,6 @@
 var mongoose = require('mongoose');
 
-var usuario_datos_cuenta = require('./datos_cuenta');
+var usuario_datos_cuenta = require('./Datos_cuenta');
 mongoose.connect('mongodb://localhost/noestudiosolo', function (err) {
  
    if (err) throw err;
@@ -31,7 +31,7 @@ mongoose.connect('mongodb://localhost/noestudiosolo', function (err) {
     }).exec(function(err, datos) {
         if (err) throw err;
          
-        console.log(datos.clave);
+        console.log(datos.id);
     
     });
 });

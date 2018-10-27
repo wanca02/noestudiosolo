@@ -1,6 +1,9 @@
 var mongoose = require('mongoose');
 
-var usuario_datos_cuenta = require('./datos_cuenta');
+var usuario_datos_cuenta = require('./Datos_cuenta');
+var usuario_datos_personales = require('./Datos_personales');
+var usuario_computo = require('./Computo');
+
 mongoose.connect('mongodb://localhost/noestudiosolo', function (err) {
  
    if (err) throw err;
@@ -9,10 +12,10 @@ mongoose.connect('mongodb://localhost/noestudiosolo', function (err) {
    
    var NuevoUsuario = new usuario_datos_cuenta({
     _id: new mongoose.Types.ObjectId(),
-    usuario: 'mpedemonte',
-    clave: '1234qwer',
-    nombre: 'Marco Pedemonte',
-    correo: 'mpedemonte2017@alu.uct.cl',
+    usuario: 'nrivas',
+    clave: 'qwer1234',
+    nombre: 'Nicolas Rivas',
+    correo: 'nrivas2017@alu.uct.cl',
     nivel_permisos: 'usuario',
     });
 
