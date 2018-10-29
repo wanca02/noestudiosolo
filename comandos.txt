@@ -1,0 +1,15 @@
+		comandos probados
+
+	Descripcion general de algunos comandos.
+
+	git config-> Para configurar el usuario a conectar
+	git init-> crea un nuevo repositorio git
+	git add-> agrega archivos al index
+	git clone-> clona un repositorio
+	git commit -> se usa para cambiar el mensaje de cambios
+	git status-> muestra lista de archivos cambiados
+	git push-> envia los cambios de la rama principal
+	git checkout-> crea y cambia ramas
+	git remote-> permite el manejo de los repositorios
+
+
