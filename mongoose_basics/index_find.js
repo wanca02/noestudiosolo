@@ -1,6 +1,6 @@
 var mongoose = require('mongoose');
 
-var usuario_datos_cuenta = require('./Datos_cuenta');
+var usuario_datos_cuenta = require('./usuario/Datos_cuenta');
 mongoose.connect('mongodb://localhost/noestudiosolo', function (err) {
  
    if (err) throw err;
@@ -8,7 +8,7 @@ mongoose.connect('mongodb://localhost/noestudiosolo', function (err) {
    console.log('Conectado!');
 
    
-   usuario_datos_cuenta.find({
+  /* usuario_datos_cuenta.find({
     correo: "mpedemonte2017@alu.uct.cl"
     }).exec(function(err, datos) {
     if (err) throw err;
@@ -17,7 +17,8 @@ mongoose.connect('mongodb://localhost/noestudiosolo', function (err) {
 
     }); 
     
-   usuario_datos_cuenta.findOne({
+  */
+    /* usuario_datos_cuenta.findOne({
      usuario: "maps",correo: "mpedemonte2017@alu.uct.cl"
         }).exec(function(err, datos) {
         if (err) throw err;
@@ -25,13 +26,13 @@ mongoose.connect('mongodb://localhost/noestudiosolo', function (err) {
         console.log(datos);
         console.log(datos.correo)    
     }); 
-   
+   */
    usuario_datos_cuenta.findOne({
-        usuario: "mpedemonte"
+        "Datos_cuenta.usuario": "mpedemonte"
     }).exec(function(err, datos) {
         if (err) throw err;
          
-        console.log(datos.id);
+        console.log(datos.Datos_cuenta.clave);
     
     });
 });
