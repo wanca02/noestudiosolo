@@ -1,0 +1,15 @@
+            Inicios de la plataforma
+
+	Los primeros movimientos a realizarse dentro de lo que ha plataforma conciste
+estan relacionados por nuestra parte a el manejo de ellas, junto a la prueba de los 
+sistemas a usarse, por ser una probabilidad de usarse ubuntu, se inicia un proceso de 
+pruebas en dicho sistema en cuanto al uso de servidor y el manejo de esto con git.
+Para realizar las pruebas utilizamos virtualizaciones en vmware, montando servidor con
+ubuntu 18.04 live server y manejando archivos de prueba, usuarios y conexiones.  	
+	Para poder realizar todas las tareas necesarias en git y tener las conexiones
+pertinentes se ha hecho necesario tomar en cuenta el manejo por consola junto con los 
+comandos a usarse en el intercambio y conexion de todas las partes de nuestro trabajo.
+	Luego de la definicion de el servidor y el dominio a usarse se tomaran las pruebas
+para las conexiones reales, ya que de momento todo es un testeo de funcionalidades. Con lo que
+ya se pasara a un cambio de tareas.
+
