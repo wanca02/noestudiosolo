@@ -2,7 +2,7 @@ var mongoose = require('mongoose');
 
 var usuario_datos_cuenta = require('./usuario/Datos_cuenta');
 
-mongoose.connect('mongodb://localhost/noestudiosolo', function (err) {
+mongoose.connect('mongodb://localhost/usuario', function (err) {
  
    if (err) throw err;
  
