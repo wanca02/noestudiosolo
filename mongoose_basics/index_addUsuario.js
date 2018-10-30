@@ -29,7 +29,10 @@ mongoose.connect('mongodb://localhost/usuario', function (err) {
              nactividades_terminadas: 3,
              nsesiones_no_terminadas: 2,
              nactividades_no_terminadas:1
-            }
+            },
+    grupos: ["grupo1", "grupo2"],
+    puntos_actividad: 25,
+    valoracion_plataforma: 4
     });
     
     NuevoUsuario.save(function(err) {

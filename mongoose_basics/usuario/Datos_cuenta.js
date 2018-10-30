@@ -49,8 +49,14 @@ var Datos_cuentaSchema = mongoose.Schema({
                     nsesiones_no_terminadas:{ type: Number
                     },
                     nactividades_no_terminadas:{ type: Number
+                    }
+                },
+         grupos:{type:Array
+        },
+         puntos_actividad:{ type:Number
+         },
+         valoracion_plataforma:{type:Number
         }
-    }
 });
 
 
