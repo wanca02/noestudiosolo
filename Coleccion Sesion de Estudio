@@ -1,0 +1,15 @@
+db.sesion_de_estudio.insert({
+... tecnica_empleada:{tecnica: "Comprension",fase_activa: 1},
+... fecha_creacion: new Date(),
+... grupos: ["estudio","algebra","calculo"],
+... foros: ["prueba1","control","ayudantia_A"],
+... estado: "Proceso",
+... documentos: ["documentos":{tipo: "pdf",fecha_creacion: new Date(),autores: ["Alex","Juan"]},
+... ... "documentos":{tipo: "docx",fecha_creacion: new Date(),autores: ["Sebastian","Paula"] }],
+... disciplina_estudio: "Contenido: Sumatoria",
+... horarios: ["horarios":{fecha: 12/11/2018,hora: "10:40",lugar: "sala estudio"},
+... ...	"horarios":{fecha: 15/11/2018,hora: "09:10",lugar: "Biblioteca"}],
+... tipo: "Avanzado",
+... etiquetas:["etiquetas":{nombre: "etiqueta",descripcion: "descripcion",tipo:"tipo"},
+... ... "etiquetas":{nombre:"etiqueta2",descripcion: "descripcion",tipo:"tipo"}]
+... })
