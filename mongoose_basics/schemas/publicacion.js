@@ -7,9 +7,10 @@ var PublicacionSchema = mongoose.Schema({
     },
     titulo:{type: String        
     },
-    para:{type: Array
+    para:{type: [String]
     },
-    fecha_creacion:{type: Date        
+    fecha_creacion:{type: Date ,
+          default: Date.now       
     },
     tipo:{type: String        
     },

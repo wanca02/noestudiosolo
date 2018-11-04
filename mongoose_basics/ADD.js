@@ -4,8 +4,9 @@ var usuario = require('./schemas/usuario');
 var grupos = require('./schemas/Grupo');
 var tecnica = require('./schemas/tecnica');
 var sesion = require('./schemas/sesion');
+var publicacion = require('./schemas/publicacion')
 
-mongoose.connect('mongodb://localhost/1', function (err) {
+mongoose.connect('mongodb://localhost/2', function (err) {
  
    if (err) throw err;
  
@@ -61,8 +62,8 @@ mongoose.connect('mongodb://localhost/1', function (err) {
      
         console.log('tecnica successfully saved.');
     
-
-        var NuevaSesion = new sesion({
+    });
+    var NuevaSesion = new sesion({
             _id: new mongoose.Types.ObjectId(),
             Tecnica_empleada:{ tecnica: NuevaTecnica.nombre,
                                 fase_activa:5
@@ -80,6 +81,7 @@ mongoose.connect('mongodb://localhost/1', function (err) {
             if (err) throw err;
      
             console.log('sesion successfully saved.');
+        });
             
             var NuevoGrupo = new grupos({
                 _id: new mongoose.Types.ObjectId(),
@@ -92,7 +94,19 @@ mongoose.connect('mongodb://localhost/1', function (err) {
          
                 console.log('grupo successfully saved.');
             });
-        });
-    });
+
+            var NuevaPublicacion = new publicacion({
+                _id: new mongoose.Types.ObjectId(),
+                mensaje: "mensaje numero 1",
+                titulo:"titulo numero 1",
+                para:["mpedemonte"],
+                tipo:"tipo 1",
+                estado:"estado 1"
+            });
+            NuevaPublicacion.save(function(err) {
+                if (err) throw err;
+                console.log('publicacion successfully saved.');
+            });
+          
 });
 
