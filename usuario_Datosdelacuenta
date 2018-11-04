@@ -1,6 +1,0 @@
-use mongodb
-
-db.createCollection("usuario")
-
-db.usuario.insert({usuario: "Prueba", clave: "probando", fecha_registro:new Date(),nivel_permisos: "admin", ultimo_ingreso: new Date() })
-
