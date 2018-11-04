@@ -1,15 +1,13 @@
 var mongoose = require('mongoose');
  
 
-var Datos_cuentaSchema = mongoose.Schema({
+var Datos_usuarioSchema = mongoose.Schema({
     _id: mongoose.Schema.Types.ObjectId,
     Datos_cuenta:{usuario:{type: String,
                             required: true    
                             },
                   clave:{type: String,
                   required: true        
-                            },
-                  nombre:{type: String
                             },
                   correo: {type: String
                          },
@@ -49,12 +47,19 @@ var Datos_cuentaSchema = mongoose.Schema({
                     nsesiones_no_terminadas:{ type: Number
                     },
                     nactividades_no_terminadas:{ type: Number
+                    }
+                },
+         grupos:{type:[mongoose.Schema.Types.ObjectId], 
+                ref: 'grupos'
+        },
+         puntos_actividad:{ type:Number
+         },
+         valoracion_plataforma:{type:Number
         }
-    }
 });
 
 
  
-var datos_cuenta = mongoose.model('Datos_cuenta', Datos_cuentaSchema);
+var usuario = mongoose.model('usuario', Datos_usuarioSchema);
 
-module.exports = datos_cuenta;
+module.exports = usuario;

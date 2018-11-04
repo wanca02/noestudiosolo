@@ -1,6 +1,6 @@
 var mongoose = require('mongoose');
 
-var usuario = require('./usuario');
+var usuario = require('./schemas/usuario');
 
 mongoose.connect('mongodb://localhost/usuario', function (err) {
  
