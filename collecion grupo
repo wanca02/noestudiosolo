@@ -1,9 +1,0 @@
-db.grupo.insert({ 
-participantes:["Juan","Marco","Nicolas"],
-sesion: "estudio",
-privado: 0, 
-participantes:{ 
-usuario: "Juan", 
-rol:"tutor", 
-progreso_tecnica:"avanzada" }
-})
