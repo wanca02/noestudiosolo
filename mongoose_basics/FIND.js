@@ -1,6 +1,6 @@
 var mongoose = require('mongoose');
 
-var usuario_datos = require('./usuario/Datos_cuenta');
+var usuario_datos = require('./schemas/usuario');
 mongoose.connect('mongodb://localhost/usuario', function (err) {
  
    if (err) throw err;
