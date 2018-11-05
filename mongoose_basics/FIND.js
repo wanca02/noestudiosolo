@@ -1,35 +1,59 @@
 var mongoose = require('mongoose');
 
-var usuario_datos = require('./schemas/usuario');
-mongoose.connect('mongodb://localhost/usuario', function (err) {
+var usuario = require('./schemas/usuario');
+var grupos = require('./schemas/Grupo');
+var tecnica = require('./schemas/tecnica');
+var sesion = require('./schemas/sesion');
+var publicacion = require('./schemas/publicacion')
+mongoose.connect('mongodb://localhost/2', function (err) {
  
    if (err) throw err;
  
    console.log('Conectado!');
 
-   
-    usuario_datos.find({
+//USUARIO
+
+// Todos los usuarios
+    usuario.find({
     }).exec(function(err, datos) {
     if (err) throw err;
  
-    console.log(datos);
+   // console.log(datos);
 
     }); 
-    
-     usuario_datos.findOne({
+/* usuario especifico    
+     usuario.findOne({
         "Datos_cuenta.usuario": "mpedemonte"
         }).exec(function(err, datos) {
         if (err) throw err;
      
         console.log(datos);    
-    }); 
-   
-   usuario_datos.findOne({
+    });
+    */ 
+// dato especifico de un usuario   
+   usuario.findOne({
         "Datos_cuenta.usuario": "mpedemonte"
     }).exec(function(err, datos) {
         if (err) throw err;
          
-        console.log(datos.Datos_personales.fecha_nacimiento);
+     //   console.log(datos.grupos);
     
+    });
+
+// Grupos
+
+        grupos.find({
+        }).exec(function(err, datos) {
+        if (err) throw err;
+            console.log(datos);
+    });
+
+    grupos.findOne({
+    }).exec(function(err, datos) {
+        if (err) throw err;
+         
+        console.log(datos.participantes);
+
+
     });
 });

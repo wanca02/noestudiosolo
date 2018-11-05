@@ -14,7 +14,7 @@ mongoose.connect('mongodb://localhost/2', function (err) {
 
    var NuevoUsuario = new usuario({
     _id: new mongoose.Types.ObjectId(),
-    Datos_cuenta:{usuario: 'mpedemonte',
+    Datos_cuenta:{usuario: 'mp',
                   clave: '1234qwer',
                   correo: 'mpedemonte2017@alu.uct.cl',
                   nivel_permisos: 'usuario'

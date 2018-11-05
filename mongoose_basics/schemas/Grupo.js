@@ -8,7 +8,7 @@ var GrupoSchema = mongoose.Schema({
             usuario: {type:mongoose.Schema.Types.ObjectId,
                      ref:"usuario"},
             rol: String,
-            fecha_ingreso: Date,
+            fecha_ingreso: {type:Date , default: Date.now},
             progreso_tecnica: String
         }
     ],
