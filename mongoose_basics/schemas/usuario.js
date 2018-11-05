@@ -18,7 +18,9 @@ var Datos_usuarioSchema = mongoose.Schema({
                         },
                 ultimo_ingreso:{type: Date,
                         default: Date.now
-                    }
+                    },
+                estado_cuenta:{type: String
+                        }
                 },
     Datos_personales:{nombre:{type: String,
                       required: true    
@@ -49,6 +51,13 @@ var Datos_usuarioSchema = mongoose.Schema({
                     nactividades_no_terminadas:{ type: Number
                     }
                 },
+        Faltas_conducta:{razon:{ type: String
+                                },
+                        ingresado_por:{ type: String
+                        },
+                        estado:{ type: String
+                        }
+        },
          grupos:{type:[mongoose.Schema.Types.ObjectId], 
                 ref: 'grupos'
         },

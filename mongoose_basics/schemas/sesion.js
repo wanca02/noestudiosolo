@@ -15,6 +15,9 @@ var SesionSchema = mongoose.Schema({
     grupos:{type:[mongoose.Schema.Types.ObjectId], 
             ref: 'grupos'
     },
+    foros:{type:[mongoose.Schema.Types.ObjectId],
+           ref: 'foro'
+    },
     estado:{type: String
     },
     /*documentos:{type: Array        
@@ -29,7 +32,15 @@ var SesionSchema = mongoose.Schema({
         }
     ],
     tipo:{type: String
-    }
+    },
+    etiquetas:[
+        { nombre:{type:String
+            },
+          descripcion:{type:String
+          },  
+          tipo:{type:String
+          }
+    }]
 });
 
 

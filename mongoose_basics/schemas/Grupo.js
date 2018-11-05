@@ -15,6 +15,8 @@ var GrupoSchema = mongoose.Schema({
     sesion:{ type:mongoose.Schema.Types.ObjectId,
         ref:"sesion"
     },
+    rol:{type: String
+    },
     tipo:{type: String
     },
     privado:{type: Boolean

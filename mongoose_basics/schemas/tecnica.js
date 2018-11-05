@@ -19,6 +19,15 @@ var TecnicaSchema = mongoose.Schema({
     },
     modalidades:{type: Array   
     },
+    etiquetas:[
+        { nombre:{type:String
+            },
+          descripcion:{type:String
+          },  
+          tipo:{type:String
+          }
+    }
+    ],
     tutor:{type: Boolean   
     },
     complejidad:{type: String   
