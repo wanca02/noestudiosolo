@@ -25,6 +25,6 @@ var GrupoSchema = mongoose.Schema({
 });
 
 
-var Grupo = mongoose.model('Grupo',GrupoSchema);
+var Grupo = mongoose.model('Grupo',GrupoSchema,'Grupo');
 
 module.exports = Grupo;

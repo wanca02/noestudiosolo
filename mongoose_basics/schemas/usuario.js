@@ -9,6 +9,8 @@ var Datos_usuarioSchema = mongoose.Schema({
                   clave:{type: String,
                   required: true        
                             },
+                  nombre:{type:String
+                  },
                   correo: {type: String
                          },
                 fecha_registro: {type: Date,
@@ -51,13 +53,13 @@ var Datos_usuarioSchema = mongoose.Schema({
                     nactividades_no_terminadas:{ type: Number
                     }
                 },
-        Faltas_conducta:{razon:{ type: String
+        Faltas_conducta:[{razon:{ type: String
                                 },
                         ingresado_por:{ type: String
                         },
                         estado:{ type: String
                         }
-        },
+        }],
          grupos:{type:[mongoose.Schema.Types.ObjectId], 
                 ref: 'grupos'
         },
@@ -69,6 +71,6 @@ var Datos_usuarioSchema = mongoose.Schema({
 
 
  
-var usuario = mongoose.model('usuario', Datos_usuarioSchema);
+var Usuario = mongoose.model('Usuario', Datos_usuarioSchema,"Usuario");
 
-module.exports = usuario;
+module.exports = Usuario;

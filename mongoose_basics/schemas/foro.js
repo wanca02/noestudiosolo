@@ -36,13 +36,12 @@ var mongoose = require('mongoose');
   var postsSchema = mongoose.Schema({_id: mongoose.Schema.Types.ObjectId,
     nombre:{type:String
     },
-    descripcion:{type:String
-    },
     contenido:{type:String
     },
     tipo:{type:String
     },
-    votos:[{usuario:{type:String
+    votos:[{usuario:{type:mongoose.Schema.Types.ObjectId,
+                    ref:"usuario"
             },
             voto:{type:Number
             }
@@ -65,13 +64,8 @@ var mongoose = require('mongoose');
     aprobado:{type:Boolean
     },
     etiquetas:[
-        { nombre:{type:String
-            },
-          descripcion:{type:String
-          },  
-          tipo:{type:String
-          }
-    }],
+        {type:String
+            }],
     estado:{type:String
     }
 });
@@ -83,15 +77,6 @@ var ForoSchema = mongoose.Schema({
     descripcion:{type: String        
     },
     posts:[postsSchema],
-    etiquetas:[
-        { nombre:{type:String
-            },
-          descripcion:{type:String
-          },  
-          tipo:{type:String
-          }
-    }
-    ],
     autor:{type:mongoose.Schema.Types.ObjectId,
         ref: 'usuario'
       },
@@ -104,17 +89,11 @@ var ForoSchema = mongoose.Schema({
       suscritos:{type:[mongoose.Schema.Types.ObjectId],
         ref: 'usuario'
       },
-      etiquetas:[
-        { nombre:{type:String
-            },
-          descripcion:{type:String
-          },  
-          tipo:{type:String
-          }
-    }]
+      etiquetas:[{type:String       
+      }]
 });
 
 
-var foro = mongoose.model('foro',ForoSchema);
+var Foro = mongoose.model('Foro',ForoSchema,"Foro");
 
-module.exports = foro;
+module.exports = Foro;

@@ -20,8 +20,8 @@ var SesionSchema = mongoose.Schema({
     },
     estado:{type: String
     },
-    /*documentos:{type: Array        
-    },*/
+    documentos:[{type: Array        
+    }],
     disciplina_estudio:{type: String
     },
     horarios: [
@@ -33,17 +33,12 @@ var SesionSchema = mongoose.Schema({
     ],
     tipo:{type: String
     },
-    etiquetas:[
-        { nombre:{type:String
-            },
-          descripcion:{type:String
-          },  
-          tipo:{type:String
-          }
-    }]
+    etiquetas:[{type:String
+            }
+    ]
 });
 
 
-var sesion = mongoose.model('sesion',SesionSchema);
+var Sesion_de_estudio = mongoose.model('Sesion_de_estudio',SesionSchema,"Sesion_de_estudio");
 
-module.exports = sesion;
+module.exports = Sesion_de_estudio;

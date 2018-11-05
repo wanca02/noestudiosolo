@@ -1,13 +1,16 @@
 var mongoose = require('mongoose');
 
 
-var PublicacionSchema = mongoose.Schema({
+var AnuncioSchema = mongoose.Schema({
     _id: mongoose.Schema.Types.ObjectId,
     mensaje:{type: String   
     },
     titulo:{type: String        
     },
-    para:{type: [String]
+    autor:{type:mongoose.Schema.Types.ObjectId,
+        ref:"usuario"},
+    para:{type:mongoose.Schema.Types.ObjectId,
+        ref:"usuario"
     },
     fecha_creacion:{type: Date ,
           default: Date.now       
@@ -19,6 +22,6 @@ var PublicacionSchema = mongoose.Schema({
 });
 
 
-var publicacion = mongoose.model('publicacion',PublicacionSchema);
+var Anuncio = mongoose.model('Anuncio',AnuncioSchema,"Anuncio");
 
-module.exports = publicacion;
+module.exports = Anuncio;

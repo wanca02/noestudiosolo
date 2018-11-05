@@ -19,22 +19,15 @@ var TecnicaSchema = mongoose.Schema({
     },
     modalidades:{type: Array   
     },
-    etiquetas:[
-        { nombre:{type:String
-            },
-          descripcion:{type:String
-          },  
-          tipo:{type:String
-          }
-    }
-    ],
     tutor:{type: Boolean   
     },
     complejidad:{type: String   
-    }
+    },
+    etiquetas:[{type:String
+                }]
 });
 
 
-var tecnica = mongoose.model('tecnica',TecnicaSchema);
+var Tecnica = mongoose.model('Tecnica',TecnicaSchema,"Tecnica");
 
-module.exports = tecnica;
+module.exports = Tecnica;
