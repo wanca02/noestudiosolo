@@ -49,19 +49,18 @@ exports.addTecnica = function(req, res) {
 //PUT - Update a register already exists
 exports.updateTecnica = function(req, res) {
 	Tecnica.findById(req.params._id, function(err, tecnicas) {
-		tvshow.title   = req.body.petId;
-		tecnicas._id:                        req.body._id,
-        tecnicas.nombre:                     req.body.nombre,
-        tecnicas.descripcion:                req.body.descripcion,
-        tecnicas.instrucciones:              req.body.instrucciones,
-        tecnicas.nrecom_participantes:       req.body.nrecom_participantes,
-        tecnicas.nrecom_integrantes:         req.body.nrecom_integrantes,
-        tecnicas.nrecom_grupos:              req.body.nrecom_grupos,
-        tecnicas.habilidades_desarrolladas:  req.body.habilidades_desarrolladas,
-        tecnicas.modalidades:                req.body.modalidades,
-        tecnicas.tutor:                      req.body.tutor,
-        tecnicas.complejidad:                req.body.complejidad,
-        tecnicas.etiquetas:                  req.body.etiquetas
+		tecnicas._id=                        req.body._id,
+        tecnicas.nombre=                     req.body.nombre,
+        tecnicas.descripcion=                req.body.descripcion,
+        tecnicas.instrucciones=              req.body.instrucciones,
+        tecnicas.nrecom_participantes=       req.body.nrecom_participantes,
+        tecnicas.nrecom_integrantes=         req.body.nrecom_integrantes,
+        tecnicas.nrecom_grupos=              req.body.nrecom_grupos,
+        tecnicas.habilidades_desarrolladas=  req.body.habilidades_desarrolladas,
+        tecnicas.modalidades=                req.body.modalidades,
+        tecnicas.tutor=                      req.body.tutor,
+        tecnicas.complejidad=                req.body.complejidad,
+        tecnicas.etiquetas=                  req.body.etiquetas
 
 		tecnica.save(function(err) {
 			if(err) return res.send(500, err.message);
