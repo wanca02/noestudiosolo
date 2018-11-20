@@ -7,7 +7,7 @@ var sesion = require('./schemas/sesion');
 var anuncio = require('./schemas/Anuncio');
 var foro = require('./schemas/foro');
 
-mongoose.connect('mongodb://localhost/base1', function (err) {
+mongoose.connect('mongodb://localhost/base123', function (err) {
  
    if (err) throw err;
  
