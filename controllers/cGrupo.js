@@ -1,4 +1,4 @@
-var Grupo = require('./grupo');
+var Grupo = require('./Grupo');
 
 //GET - Return all tvshows in the DB
 exports.findGrupos = function(req, res) {
