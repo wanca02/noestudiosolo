@@ -43,13 +43,13 @@ exports.addAnuncio = function(req, res) {
 //PUT - Update a register already exists
 exports.updateAnuncio = function(req, res) {
 	Tecnica.findById(req.params._id, function(err, anuncios) {
-		tvshow.title   = req.body.petId;
-		tvshow.year    = req.body.year;
-		tvshow.country = req.body.country;
-		tvshow.poster  = req.body.poster;
-		tvshow.seasons = req.body.seasons;
-		tvshow.genre   = req.body.genre;
-		tvshow.summary = req.body.summary;
+		anuncios._id:        req.body._id,
+        anuncios.mensaje:    req.body.mensaje,
+        anuncios.titulo:     req.body.titulo,
+        anuncios.autor:      req.body.autor,
+        anuncios.para:       req.body.para,
+        anuncios.tipo:       req.body.tipo,
+        anuncios.estado:    req.body.estado
 
 		anuncio.save(function(err) {
 			if(err) return res.send(500, err.message);

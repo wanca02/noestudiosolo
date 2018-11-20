@@ -50,12 +50,18 @@ exports.addTecnica = function(req, res) {
 exports.updateTecnica = function(req, res) {
 	Tecnica.findById(req.params._id, function(err, tecnicas) {
 		tvshow.title   = req.body.petId;
-		tvshow.year    = req.body.year;
-		tvshow.country = req.body.country;
-		tvshow.poster  = req.body.poster;
-		tvshow.seasons = req.body.seasons;
-		tvshow.genre   = req.body.genre;
-		tvshow.summary = req.body.summary;
+		tecnicas._id:                        req.body._id,
+        tecnicas.nombre:                     req.body.nombre,
+        tecnicas.descripcion:                req.body.descripcion,
+        tecnicas.instrucciones:              req.body.instrucciones,
+        tecnicas.nrecom_participantes:       req.body.nrecom_participantes,
+        tecnicas.nrecom_integrantes:         req.body.nrecom_integrantes,
+        tecnicas.nrecom_grupos:              req.body.nrecom_grupos,
+        tecnicas.habilidades_desarrolladas:  req.body.habilidades_desarrolladas,
+        tecnicas.modalidades:                req.body.modalidades,
+        tecnicas.tutor:                      req.body.tutor,
+        tecnicas.complejidad:                req.body.complejidad,
+        tecnicas.etiquetas:                  req.body.etiquetas
 
 		tecnica.save(function(err) {
 			if(err) return res.send(500, err.message);
