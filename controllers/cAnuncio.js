@@ -25,14 +25,13 @@ exports.addAnuncio = function(req, res) {
 	console.log(req.body);
 
 	var anuncio = new Anuncio({
-		//cambiar
-		title:    req.body.title,
-		year: 	  req.body.year,
-		country:  req.body.country,
-		poster:   req.body.poster,
-		seasons:  req.body.seasons,
-		genre:    req.body.genre,
-		summary:  req.body.summary
+		_id:        req.body._id,
+        mensaje:    req.body.mensaje,
+        titulo:     req.body.titulo,
+        autor:      req.body.autor,
+        para:       req.body.para,
+        tipo:       req.body.tipo,
+        estado:    req.body.estado
 	});
 
 	anuncio.save(function(err, anuncios) {
