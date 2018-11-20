@@ -26,14 +26,18 @@ exports.addTecnica = function(req, res) {
 	console.log(req.body);
 
 	var tecnica = new Tecnica({
-		//cambiar
-		title:    req.body.title,
-		year: 	  req.body.year,
-		country:  req.body.country,
-		poster:   req.body.poster,
-		seasons:  req.body.seasons,
-		genre:    req.body.genre,
-		summary:  req.body.summary
+		_id:                        req.body._id,
+        nombre:                     req.body.nombre,
+        descripcion:                req.body.descripcion,
+        instrucciones:              req.body.instrucciones,
+        nrecom_participantes:       req.body.nrecom_participantes,
+        nrecom_integrantes:         req.body.nrecom_integrantes,
+        nrecom_grupos:              req.body.nrecom_grupos,
+        habilidades_desarrolladas:  req.body.habilidades_desarrolladas,
+        modalidades:                req.body.modalidades,
+        tutor:                      req.body.tutor,
+        complejidad:                req.body.complejidad,
+        etiquetas:                  req.body.etiquetas
 	});
 
 	tecnica.save(function(err, tecnicas) {
@@ -44,7 +48,7 @@ exports.addTecnica = function(req, res) {
 
 //PUT - Update a register already exists
 exports.updateTecnica = function(req, res) {
-	Tecnica.findById(req.params._id, function(err, tecnica) {
+	Tecnica.findById(req.params._id, function(err, tecnicas) {
 		tvshow.title   = req.body.petId;
 		tvshow.year    = req.body.year;
 		tvshow.country = req.body.country;
@@ -55,7 +59,7 @@ exports.updateTecnica = function(req, res) {
 
 		tecnica.save(function(err) {
 			if(err) return res.send(500, err.message);
-      res.status(200).jsonp(tecnica);
+      res.status(200).jsonp(tecnicas);
 		});
 	});
 };
