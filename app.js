@@ -4,7 +4,7 @@ var express = require("express"),
     methodOverride = require("method-override");
     mongoose = require('mongoose');
   
-mongoose.connect('mongodb://localhost/base123', function(err, res) {
+mongoose.connect('mongodb://localhost/base1', function(err, res) {
       if(err) throw err;
       console.log('Connected to Database');
 });    
@@ -34,6 +34,12 @@ var tecnica = express.Router();
 
 tecnica.route('/tecnica')
   .get(tecnicaCtrl.findTecnicas)
+  .post(tecnicaCtrl.addTecnica);
+
+tecnica.route('/tecnica/:_id')
+  .get(tecnicaCtrl.findById)
+  .put(tecnicaCtrl.updateTecnica)
+  .delete(tecnicaCtrl.deleteTecnica);
 
 app.use('/', tecnica);
 
@@ -74,6 +80,12 @@ var usuario = express.Router();
 
 usuario.route('/usuario')
   .get(usuarioCtrl.findUsuario)
+  .post(usuarioCtrl.addUsuario);
+
+usuario.route('/usuario/:_id')
+  .get(usuarioCtrl.findById)
+  .put(usuarioCtrl.updateUsuario)
+  .delete(usuarioCtrl.deleteTecnica);
 
 app.use('/', usuario);
 

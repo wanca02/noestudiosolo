@@ -1,13 +1,19 @@
 var mongoose = require('mongoose');
  
+var Falta = new mongoose.Schema({
+        razon:{ type: String
+        },
+        ingresado_por:{ type: String
+         },
+        estado:{ type: String
+        }
+});
 
 var Datos_usuarioSchema = mongoose.Schema({
     _id: mongoose.Schema.Types.ObjectId,
-    Datos_cuenta:{usuario:{type: String,
-                            required: true    
+    Datos_cuenta:{usuario:{type: String,    
                             },
-                  clave:{type: String,
-                  required: true        
+                  clave:{type: String,        
                             },
                   nombre:{type:String
                   },
@@ -25,7 +31,6 @@ var Datos_usuarioSchema = mongoose.Schema({
                         }
                 },
     Datos_personales:{nombre:{type: String,
-                      required: true    
                     },
                       fecha_nacimiento:{type: Date        
                     },
@@ -53,13 +58,7 @@ var Datos_usuarioSchema = mongoose.Schema({
                     nactividades_no_terminadas:{ type: Number
                     }
                 },
-        Faltas_conducta:[{razon:{ type: String
-                                },
-                        ingresado_por:{ type: String
-                        },
-                        estado:{ type: String
-                        }
-        }],
+        Faltas_conducta:[Falta],
          grupos:{type:[mongoose.Schema.Types.ObjectId], 
                 ref: 'grupos'
         },

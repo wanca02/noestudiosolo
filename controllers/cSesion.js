@@ -12,20 +12,20 @@ exports.findSesion_de_estudio = function(req, res) {
 
 //GET - Return a TVShow with specified ID
 exports.findById = function(req, res) {
-	Tecnica.findById(req.params._id, function(err, tecnicas) {
+	Sesion_de_estudio.findById(req.params._id, function(err, sesiones) {
     if(err) return res.send(500, err.message);
 
-    console.log('GET /tecnica/' + req.params._id);
-		res.status(200).jsonp(tecnicas);
+    console.log('GET /sesion_de_estudio/' + req.params._id);
+		res.status(200).jsonp(sesiones);
 	});
 };
 
 //POST - Insert a new TVShow in the DB
-exports.addTecnica = function(req, res) {
+exports.addSesion_de_estudio = function(req, res) {
 	console.log('POST');
 	console.log(req.body);
 
-	var tecnica = new Tecnica({
+	var sesion = new Sesion_de_estudio({
 		_id:                        req.body._id,
         nombre:                     req.body.nombre,
         descripcion:                req.body.descripcion,
@@ -40,15 +40,15 @@ exports.addTecnica = function(req, res) {
         etiquetas:                  req.body.etiquetas
 	});
 
-	tecnica.save(function(err, tecnicas) {
+	sesion.save(function(err, sesiones) {
 		if(err) return res.send(500, err.message);
-    res.status(200).jsonp(tecnicas);
+    res.status(200).jsonp(sesiones);
 	});
 };
 
 //PUT - Update a register already exists
-exports.updateTecnica = function(req, res) {
-	Tecnica.findById(req.params._id, function(err, tecnicas) {
+exports.updateSesion = function(req, res) {
+	Sesion_de_estudio.findById(req.params._id, function(err, sesiones) {
 		tvshow.title   = req.body.petId;
 		tvshow.year    = req.body.year;
 		tvshow.country = req.body.country;
@@ -57,17 +57,17 @@ exports.updateTecnica = function(req, res) {
 		tvshow.genre   = req.body.genre;
 		tvshow.summary = req.body.summary;
 
-		tecnica.save(function(err) {
+		sesion.save(function(err) {
 			if(err) return res.send(500, err.message);
-      res.status(200).jsonp(tecnicas);
+      res.status(200).jsonp(sesiones);
 		});
 	});
 };
 
 //DELETE - Delete a TVShow with specified ID
 exports.deleteTecnica = function(req, res) {
-	Tecnica.findById(req.params._id, function(err, tecnicas) {
-		tecnicas.remove(function(err) {
+	Sesion_de_estudio.findById(req.params._id, function(err, sesiones) {
+		sesiones.remove(function(err) {
 			if(err) return res.send(500, err.message);
       res.status(200);
 		})
