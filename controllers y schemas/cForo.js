@@ -54,7 +54,7 @@ exports.updateForo = function(req, res) {
         foro.suscritos=				req.body.suscritos,
 		foro.etiquetas=				req.body.etiquetas
 		
-		foros.save(function(err) {
+		foro.save(function(err) {
 			if(err) return res.send(500, err.message);
       res.status(200).jsonp(foro);
 		});
