@@ -13,13 +13,12 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use(methodOverride());
 
-//var tecnica = require('./schemas/tecnica');
-var tecnicaCtrl = require('./controllers/cTecnica');
-var anuncioCtrl = require('./controllers/cAnuncio');
-var foroCtrl = require('./controllers/cForo');
-var grupoCtrl = require('./controllers/cGrupo');
-var sesionCtrl = require('./controllers/cSesion');
-var usuarioCtrl = require('./controllers/cUsuario');
+var tecnicaCtrl = require('./controllers y schemas/cTecnica');
+var anuncioCtrl = require('./controllers y schemas/cAnuncio');
+var foroCtrl = require('./controllers y schemas/cForo');
+var grupoCtrl = require('./controllers y schemas/cGrupo');
+var sesionCtrl = require('./controllers y schemas/cSesion');
+var usuarioCtrl = require('./controllers y schemas/cUsuario');
 
 var router = express.Router();
 
@@ -48,6 +47,12 @@ var anuncio = express.Router();
 
 anuncio.route('/anuncio')
   .get(anuncioCtrl.findAnuncios)
+  .post(anuncioCtrl.addAnuncio);
+
+anuncio.route('/anuncio/:_id')
+  .get(anuncioCtrl.findById)
+  .put(anuncioCtrl.updateAnuncio)
+  .delete(anuncioCtrl.deleteAnuncio);
 
 app.use('/', anuncio);
 
@@ -56,7 +61,12 @@ var foro = express.Router();
 
 foro.route('/foro')
   .get(foroCtrl.findForo)
+  .post(foroCtrl.addForo);
 
+foro.route('/foro/:_id')
+  .get(foroCtrl.findById)
+  .put(foroCtrl.updateForo)
+  .delete(foroCtrl.deleteForo);
 app.use('/', foro);
 
 // API routes grupo
@@ -64,6 +74,12 @@ var grupo = express.Router();
 
 grupo.route('/grupo')
   .get(grupoCtrl.findGrupos)
+  .post(grupoCtrl.addGrupo);
+
+grupo.route('/grupo/:_id')
+  .get(grupoCtrl.findById)
+  .put(grupoCtrl.updateGrupo)
+  .delete(grupoCtrl.deleteGrupo);
 
 app.use('/', grupo);
 
@@ -72,7 +88,13 @@ var sesion = express.Router();
 
 sesion.route('/sesion_de_estudio')
   .get(sesionCtrl.findSesion_de_estudio)
+  .post(sesionCtrl.addSesion_de_estudio);
 
+  sesion.route('/sesion_de_estudio/:_id')
+    .get(sesionCtrl.findById)
+    .put(sesionCtrl.updateSesion_de_estudio)
+    .delete(sesionCtrl.deleteSesion_de_estudio);
+  
 app.use('/', sesion);
 
 // API routes usuario
@@ -85,7 +107,7 @@ usuario.route('/usuario')
 usuario.route('/usuario/:_id')
   .get(usuarioCtrl.findById)
   .put(usuarioCtrl.updateUsuario)
-  .delete(usuarioCtrl.deleteTecnica);
+  .delete(usuarioCtrl.deleteUsuario);
 
 app.use('/', usuario);
 

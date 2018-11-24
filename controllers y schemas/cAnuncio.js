@@ -2,20 +2,20 @@ var Anuncio = require('./Anuncio');
 
 //GET - Return all tvshows in the DB
 exports.findAnuncios = function(req, res) {
-	Anuncio.find(function(err, anuncios) {
+	Anuncio.find(function(err, anuncio) {
     if(err) res.send(500, err.message);
 
     console.log('GET /anuncio')
-		res.status(200).jsonp(anuncios);
+		res.status(200).jsonp(anuncio);
 	});
 };
 //GET - Return a TVShow with specified ID
 exports.findById = function(req, res) {
-	Anuncio.findById(req.params._id, function(err, anuncios) {
+	Anuncio.findById(req.params._id, function(err, anuncio) {
     if(err) return res.send(500, err.message);
 
     console.log('GET /anuncio/' + req.params._id);
-		res.status(200).jsonp(anuncios);
+		res.status(200).jsonp(anuncio);
 	});
 };
 
@@ -25,7 +25,7 @@ exports.addAnuncio = function(req, res) {
 	console.log(req.body);
 
 	var anuncio = new Anuncio({
-		_id:        req.body._id,
+		_id:        new mongoose.Types.ObjectId(),
         mensaje:    req.body.mensaje,
         titulo:     req.body.titulo,
         autor:      req.body.autor,
@@ -34,34 +34,33 @@ exports.addAnuncio = function(req, res) {
         estado:    req.body.estado
 	});
 
-	anuncio.save(function(err, anuncios) {
+	anuncio.save(function(err, anuncio) {
 		if(err) return res.send(500, err.message);
-    res.status(200).jsonp(anuncios);
+    res.status(200).jsonp(anuncio);
 	});
 };
 
 //PUT - Update a register already exists
 exports.updateAnuncio = function(req, res) {
-	Tecnica.findById(req.params._id, function(err, anuncios) {
-		anuncios._id=        req.body._id,
-        anuncios.mensaje=    req.body.mensaje,
-        anuncios.titulo=     req.body.titulo,
-        anuncios.autor=      req.body.autor,
-        anuncios.para=       req.body.para,
-        anuncios.tipo=       req.body.tipo,
-        anuncios.estado=    req.body.estado
+	Anuncio.findById(req.params._id, function(err, anuncio) {
+        anuncio.mensaje=    req.body.mensaje,
+        anuncio.titulo=     req.body.titulo,
+        anuncio.autor=      req.body.autor,
+        anuncio.para=       req.body.para,
+        anuncio.tipo=       req.body.tipo,
+        anuncio.estado=    req.body.estado
 
 		anuncio.save(function(err) {
 			if(err) return res.send(500, err.message);
-      res.status(200).jsonp(anuncios);
+      res.status(200).jsonp(anuncio);
 		});
 	});
 };
 
 //DELETE - Delete a TVShow with specified ID
 exports.deleteAnuncio = function(req, res) {
-	Anuncio.findById(req.params._id, function(err, anuncios) {
-		anuncios.remove(function(err) {
+	Anuncio.findById(req.params._id, function(err, anuncio) {
+		anuncio.remove(function(err) {
 			if(err) return res.send(500, err.message);
       res.status(200);
 		})

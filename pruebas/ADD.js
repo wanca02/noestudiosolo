@@ -1,11 +1,11 @@
 var mongoose = require('mongoose');
 
-var usuario = require('./controllers y schemas/usuario');
-var grupos = require('./controllers y schemas/Grupo');
-var tecnica = require('./controllers y schemas/tecnica');
-var sesion = require('./controllers y schemas/sesion');
-var anuncio = require('./controllers y schemas/Anuncio');
-var foro = require('./controllers y schemas/foro');
+var usuario = require('./schemas/usuario');
+var grupos = require('./schemas/Grupo');
+var tecnica = require('./schemas/tecnica');
+var sesion = require('./schemas/sesion');
+var anuncio = require('./schemas/Anuncio');
+var foro = require('./schemas/foro');
 
 mongoose.connect('mongodb://localhost/base123', function (err) {
  
@@ -37,10 +37,10 @@ mongoose.connect('mongodb://localhost/base123', function (err) {
              nsesiones_no_terminadas: 14,
              nactividades_no_terminadas:236
             },
-    Faltas_conducta:[{razon:"no participa",
+    /*Faltas_conducta:[{razon:"no participa",
                       ingresado_por:NuevoUsuario._id,
                       estado: "En espera"
-                    }],
+                    }],*/
     /*grupos:[NuevoGrupo_id],*/
     puntos_actividad: 233,
     valoracion_plataforma: 20
@@ -77,10 +77,10 @@ mongoose.connect('mongodb://localhost/base123', function (err) {
             Tecnica_empleada:{ tecnica: NuevaTecnica.nombre,
                                 fase_activa:3
                             },
-            grupos:[{ id_grupo:NuevoGrupo._id
-                    }],
+            /*grupos:[{ id_grupo:NuevoGrupo._id
+                    }],*/
             estado:"Terminada",
-            foros:[NuevoForo._id],
+            /*foros:[NuevoForo._id],*/
             documentos:["Especificado por si se le da algun uso"],
             disciplina_estudio:"Ingenieria",
             horarios: [{ 

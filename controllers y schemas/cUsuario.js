@@ -27,7 +27,53 @@ exports.addUsuario = function(req, res) {
 
 	var usuario = new Usuario({
 		_id:                        		new mongoose.Types.ObjectId(),
-        Datos_cuenta:{	usuario: 			req.body.Datos_cuenta.usuario,
+		Datos_cuenta:                        req.body.Datos_cuenta,
+		Datos_personales:					 req.body.Datos_personales,
+		Computo:							 req.body.Computo,
+    	Faltas_conducta:                        req.body.Faltas_conducta,
+    	grupos:									req.body.grupos,
+    	puntos_actividad: 						req.body.puntos_actividad,
+    	valoracion_plataforma: 					req.body.valoracion_plataforma
+	});
+
+	usuario.save(function(err, usuario) {
+		if(err) return res.send(500, err.message);
+    res.status(200).jsonp(usuario);
+	});
+};
+
+//PUT - Update a register already exists
+exports.updateUsuario = function(req, res) {
+	Usuario.findById(req.params._id, function(err, usuario) {
+		usuario.Datos_cuenta =					req.body.Datos_cuenta,
+		usuario.Datos_personales=				req.body.Datos_personales,
+		usuario.Computo=						req.body.Computo,
+		usuario.Faltas_conducta=                        req.body.Faltas_conducta,
+    	usuario.grupos=											req.body.grupos,
+    	usuario.puntos_actividad= 								req.body.puntos_actividad,
+		usuario.valoracion_plataforma= 							req.body.valoracion_plataforma
+
+		usuario.save(function(err) {
+			if(err) return res.send(500, err.message);
+      res.status(200).jsonp(usuario);
+		});
+	});
+};
+
+//DELETE - Delete a TVShow with specified ID
+exports.deleteUsuario = function(req, res) {
+	Usuario.findById(req.params._id, function(err, usuario) {
+		usuario.remove(function(err) {
+			if(err) return res.send(500, err.message);
+      res.status(200);
+		})
+	});
+};
+
+
+
+
+/*Datos_cuenta:{	usuario: 			req.body.Datos_cuenta.usuario,
                   	  	clave: 				req.body.Datos_cuenta.clave,
                   		nombre: 			req.body.Datos_cuenta.nombre,
                   		correo: 			req.body.Datos_cuenta.correo,
@@ -48,24 +94,11 @@ exports.addUsuario = function(req, res) {
              	nactividades_terminadas: 	req.body.Computo.nactividades_terminadas,
              	nsesiones_no_terminadas: 	req.body.Computo.nsesiones_no_terminadas,
              	nactividades_no_terminadas:	req.body.Computo.nactividades_no_terminadas
-            },
-    Faltas_conducta:                        req.body.Faltas_conducta,
-    grupos:									req.body.grupos,
-    puntos_actividad: 						req.body.puntos_actividad,
-    valoracion_plataforma: 					req.body.valoracion_plataforma
-	});
+            },*/
 
-	usuario.save(function(err, usuario) {
-		if(err) return res.send(500, err.message);
-    res.status(200).jsonp(usuario);
-	});
-};
 
-//PUT - Update a register already exists
-exports.updateUsuario = function(req, res) {
-	Usuario.findById(req.params._id, function(err, usuario) {
-		
-      	usuario.Datos_cuenta.usuario =					req.body.Datos_cuenta.usuario,
+
+/*usuario.Datos_cuenta.usuario =					req.body.Datos_cuenta.usuario,
 	  	usuario.Datos_cuenta.clave = 					req.body.Datos_cuenta.clave,
 		usuario.Datos_cuenta.nombre= 					req.body.Datos_cuenta.nombre,
 		usuario.Datos_cuenta.correo= 					req.body.Datos_cuenta.correo,
@@ -86,25 +119,4 @@ exports.updateUsuario = function(req, res) {
         usuario.Computo.nactividades_terminadas= 		req.body.Computo.nactividades_terminadas,
         usuario.Computo.nsesiones_no_terminadas= 		req.body.Computo.nsesiones_no_terminadas,
 		usuario.Computo.nactividades_no_terminadas=		req.body.Computo.nactividades_no_terminadas,
-	
-		usuario.Faltas_conducta=                        req.body.Faltas_conducta,
-    	usuario.grupos=											req.body.grupos,
-    	usuario.puntos_actividad= 								req.body.puntos_actividad,
-		usuario.valoracion_plataforma= 							req.body.valoracion_plataforma
-
-		usuario.save(function(err) {
-			if(err) return res.send(500, err.message);
-      res.status(200).jsonp(usuario);
-		});
-	});
-};
-
-//DELETE - Delete a TVShow with specified ID
-exports.deleteTecnica = function(req, res) {
-	Usuario.findById(req.params._id, function(err, usuario) {
-		usuario.remove(function(err) {
-			if(err) return res.send(500, err.message);
-      res.status(200);
-		})
-	});
-};
+*/	
