@@ -66,7 +66,7 @@ exports.deleteForo = function(req, res) {
 	Foro.findById(req.params._id, function(err, foro) {
 		foro.remove(function(err) {
 			if(err) return res.send(500, err.message);
-      res.status(200).send("Borrado");
+      res.status(200).send("borrado");
 		})
 	});
 };
