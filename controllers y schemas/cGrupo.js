@@ -63,7 +63,7 @@ exports.deleteGrupo = function(req, res) {
 	Grupo.findById(req.params._id, function(err, grupo) {
 		grupo.remove(function(err) {
 			if(err) return res.send(500, err.message);
-      res.status(200);
+      res.status(200).send("Borrado");
 		})
 	});
 };

@@ -71,7 +71,7 @@ exports.deleteSesion_de_estudio = function(req, res) {
 	Sesion_de_estudio.findById(req.params._id, function(err, Sesion_de_estudio) {
 		Sesion_de_estudio.remove(function(err) {
 			if(err) return res.send(500, err.message);
-      res.status(200);
+      res.status(200).send("Borrado");
 		})
 	});
 };
