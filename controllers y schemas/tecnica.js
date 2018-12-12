@@ -22,8 +22,14 @@ var TecnicaSchema = mongoose.Schema({
     },
     complejidad:{type: String   
     },
-    etiquetas:[{type:String
-                }]
+    etiquetas:[{
+        nombre:{type: String   
+          },
+        descripcion:{type: String        
+          },
+        tipo:{type: String
+          }
+    }]
 });
 
 

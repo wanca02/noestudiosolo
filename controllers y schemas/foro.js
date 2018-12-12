@@ -63,9 +63,14 @@ var mongoose = require('mongoose');
             },
     aprobado:{type:Boolean
     },
-    etiquetas:[
-        {type:String
-            }],
+    etiquetas:[{
+        nombre:{type: String   
+          },
+        descripcion:{type: String        
+          },
+        tipo:{type: String
+          }
+    }],
     estado:{type:String
     }
 });
@@ -89,7 +94,13 @@ var ForoSchema = mongoose.Schema({
       suscritos:{type:[mongoose.Schema.Types.ObjectId],
         ref: 'usuario'
       },
-      etiquetas:[{type:String       
+      etiquetas:[{
+          nombre:{type: String   
+            },
+          descripcion:{type: String        
+            },
+          tipo:{type: String
+            }
       }]
 });
 
