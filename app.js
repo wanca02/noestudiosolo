@@ -4,7 +4,7 @@ var express = require("express"),
     methodOverride = require("method-override");
     mongoose = require('mongoose');
   
-mongoose.connect('mongodb://localhost/base1', function(err, res) {
+mongoose.connect('mongodb://localhost/base', function(err, res) {
       if(err) throw err;
       console.log('Connected to Database');
 });    
