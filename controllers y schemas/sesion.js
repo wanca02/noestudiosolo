@@ -33,14 +33,7 @@ var SesionSchema = mongoose.Schema({
     ],
     tipo:{type: String
     },
-    etiquetas:[{
-        nombre:{type: String   
-          },
-        descripcion:{type: String        
-          },
-        tipo:{type: String
-          }
-    }]
+    etiquetas:[{_id: mongoose.Schema.Types.ObjectId}]
 });
 
 

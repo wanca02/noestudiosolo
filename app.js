@@ -19,6 +19,7 @@ var foroCtrl = require('./controllers y schemas/cForo');
 var grupoCtrl = require('./controllers y schemas/cGrupo');
 var sesionCtrl = require('./controllers y schemas/cSesion');
 var usuarioCtrl = require('./controllers y schemas/cUsuario');
+var etiquetaCtrl = require('./controllers y schemas/cEtiqueta');
 
 var router = express.Router();
 
@@ -110,6 +111,20 @@ usuario.route('/usuario/:_id')
   .delete(usuarioCtrl.deleteUsuario);
 
 app.use('/', usuario);
+
+// API routes etiqueta
+var etiqueta = express.Router();
+
+etiqueta.route('/etiqueta')
+  .get(etiquetaCtrl.findEtiqueta)
+  .post(etiquetaCtrl.addEtiqueta);
+
+  etiqueta.route('/etiqueta/:_id')
+  .get(etiquetaCtrl.findById)
+  .put(etiquetaCtrl.updateEtiqueta)
+  .delete(etiquetaCtrl.deleteEtiqueta);
+
+app.use('/', etiqueta);
 
 
 app.listen(3000, function() {
